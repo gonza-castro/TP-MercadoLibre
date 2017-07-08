@@ -1,6 +1,9 @@
 package com.example.gonzalo.tp_mercadolibre;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +22,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,10 +30,13 @@ import retrofit2.Response;
 public class ProductActivity extends AppCompatActivity {
 
     private static final String TAG = "ProductActivity";
-
+    private String productName = "";
+    private String productPrice = "";
 
     @BindView(R.id.mainTitle)TextView mainTitle;
     @BindView(R.id.price)TextView price;
+    @BindView(R.id.quantity)TextView quantity;
+    @BindView(R.id.waranty)TextView waranty;
     @BindView(R.id.imgsContainer)LinearLayout imgsContainer;
 
 
@@ -52,11 +59,19 @@ public class ProductActivity extends AppCompatActivity {
                     Articulo received = response.body();
                     Log.i(TAG, "Artículo descargado: " + received.getTitle());
 
+                    productName = received.getTitle();
+                    productPrice = received.getPrice();
+
                     mainTitle.setText( received.getTitle() );
                     price.setText( "$" + received.getPrice() );
+                    if( received.getSold_quantity() != "" ) {
+                        quantity.setText("Cantidad de productos vendidos: " + received.getSold_quantity());
+                    }
+                    if( received.getWarranty() != "" ) {
+                        waranty.setText("Garantia: " + received.getWarranty());
+                    }
 
                     ArrayList<Imagen> pictures = received.getPictures();
-
 
                     for (int i = 0 ; i < pictures.size() ; i++)
                     {
@@ -73,6 +88,33 @@ public class ProductActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+
+
+
+    @OnClick(R.id.buttonBuy)
+    public void buttonSearchTap() {
+
+        AlertDialog.Builder builder;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            builder = new AlertDialog.Builder(ProductActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+        } else {
+            builder = new AlertDialog.Builder(ProductActivity.this);
+        }
+        builder.setTitle("Compra realizada")
+                .setMessage("Compraste el producto: " + productName + " a $" + productPrice)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .show();
 
     }
+
+
+
+
 }

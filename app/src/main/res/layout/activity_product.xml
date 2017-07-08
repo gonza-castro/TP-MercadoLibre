@@ -23,12 +23,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imgScroll"
         android:text=""
-        android:textAlignment="textStart"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
         android:textStyle="bold"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp" />
+        android:layout_marginRight="15dp"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/price"
@@ -36,11 +36,51 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/mainTitle"
         android:text=""
-        android:textAlignment="textStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textStyle="bold"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:textColor="@color/colorAccent" />
+        android:layout_marginTop="7dp"
+        android:textSize="26dp"
+        android:textColor="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/price"
+        android:text=""
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textStyle="bold"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="7dp"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/waranty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quantity"
+        android:text=""
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textStyle="bold"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="7dp"
+        android:textSize="14dp" />
+
+
+    <Button
+        android:id="@+id/buttonBuy"
+        style="@android:style/Widget.Material.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:text="Comprar"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"/>
 
 </RelativeLayout>

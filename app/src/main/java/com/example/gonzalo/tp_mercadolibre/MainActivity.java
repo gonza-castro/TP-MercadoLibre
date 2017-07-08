@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         recicler.setLayoutManager(llm);
 
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recicler.getContext(), llm.getOrientation());
+        recicler.addItemDecoration(dividerItemDecoration);
 
     }
 

@@ -77,7 +77,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
         holder.title.setText( articulo.getTitle() );
 
-        holder.price.setText( articulo.getPrice() );
+        holder.price.setText( "$" + articulo.getPrice() );
 
         Picasso.with(adapterContext).load( articulo.getThumbnail() ).into(holder.image);
 

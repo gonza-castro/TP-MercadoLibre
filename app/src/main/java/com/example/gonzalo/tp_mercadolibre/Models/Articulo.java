@@ -12,6 +12,27 @@ public class Articulo {
     private String price;
     private ArrayList<Imagen> pictures;
 
+    public String getSold_quantity() {
+        return sold_quantity;
+    }
+
+    public void setSold_quantity(String sold_quantity) {
+        this.sold_quantity = sold_quantity;
+    }
+
+    public String getWarranty() {
+        return warranty;
+    }
+
+    public void setWarranty(String warranty) {
+        this.warranty = warranty;
+    }
+
+    private String sold_quantity;
+    private String warranty;
+
+
+
     public ArrayList<Imagen> getPictures() {
         return pictures;
     }

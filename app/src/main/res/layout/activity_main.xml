@@ -35,7 +35,9 @@
         android:layout_below="@+id/SearchContainer"
         android:padding="3dp"
         android:scrollbars="vertical"
-        android:id="@+id/reciclador" />
+        android:id="@+id/reciclador"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"/>
 
 
 
